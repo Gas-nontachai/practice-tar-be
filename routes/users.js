@@ -3,8 +3,8 @@ import express from 'express';
 const router = express.Router();
 
 let users = [
-    { id: 1, name: 'John' },
-    { id: 2, name: 'Jane' },
+    { id: 1, name: "John" },
+    { id: 2, name: "Jane" },
 ];
 
 router.get('/', (req, res) => {
