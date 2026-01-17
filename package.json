@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -r dotenv/config index.js",
-    "dev": "nodemon -r dotenv/config index.js",
+    "start": "nodemon -r dotenv/config --import 'data:text/javascript,import { register } from \"node:module\"; import { pathToFileURL } from \"node:url\"; register(\"./alias-loader.mjs\", pathToFileURL(\"./\"));' index.js",
+    "dev": "nodemon -r dotenv/config --import 'data:text/javascript,import { register } from \"node:module\"; import { pathToFileURL } from \"node:url\"; register(\"./alias-loader.mjs\", pathToFileURL(\"./\"));' index.js",
     "format": "prettier --write .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

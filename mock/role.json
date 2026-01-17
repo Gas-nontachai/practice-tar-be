@@ -1,0 +1,52 @@
+[
+  {
+    "id": "role-001",
+    "name": "Super Admin",
+    "description": "Full access to all system features"
+  },
+  {
+    "id": "role-002",
+    "name": "Admin",
+    "description": "Manage users and system settings"
+  },
+  {
+    "id": "role-003",
+    "name": "Manager",
+    "description": "Manage team and view reports"
+  },
+  {
+    "id": "role-004",
+    "name": "Supervisor",
+    "description": "Supervise daily operations"
+  },
+  {
+    "id": "role-005",
+    "name": "Staff",
+    "description": "Standard staff access"
+  },
+  {
+    "id": "role-006",
+    "name": "Viewer",
+    "description": "Read-only access"
+  },
+  {
+    "id": "role-007",
+    "name": "Auditor",
+    "description": "Audit logs and compliance data"
+  },
+  {
+    "id": "role-008",
+    "name": "HR",
+    "description": "Manage employee information"
+  },
+  {
+    "id": "role-009",
+    "name": "Finance",
+    "description": "Access financial reports"
+  },
+  {
+    "id": "role-010",
+    "name": "Guest",
+    "description": "Limited temporary access"
+  }
+]
