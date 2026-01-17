@@ -4,10 +4,19 @@ let roles = [...rolesData];
 
 const listRoles = () => roles;
 const findRoleById = (id) => roles.find((p) => p.id === id) || null;
+const generateRoleId = () => {
+  const random = Math.floor(1000 + Math.random() * 9000);
+  return `Role-${random}`;
+};
+
+roles = roles.map((role) => ({
+  ...role,
+  id: generateRoleId(),
+}));
 
 const createRole = ({ name, description }) => {
   const newRole = {
-    id: String(Date.now()),
+    id: generateRoleId(),
     name,
     description,
   };
@@ -36,10 +45,4 @@ const deleteRole = (id) => {
   return roles.length !== beforeCount;
 };
 
-export {
-  listRoles,
-  findRoleById,
-  createRole,
-  updateRole,
-  deleteRole,
-};
+export { listRoles, findRoleById, createRole, updateRole, deleteRole };
