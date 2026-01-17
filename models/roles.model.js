@@ -3,14 +3,12 @@ import rolesData from "@/mock/roles.json" with { type: "json" };
 let roles = [...rolesData];
 
 const listRoles = () => roles;
-
 const findRoleById = (id) => roles.find((p) => p.id === id) || null;
 
-const createRole = ({ name, price, description }) => {
+const createRole = ({ name, description }) => {
   const newRole = {
     id: String(Date.now()),
     name,
-    price,
     description,
   };
 
@@ -24,9 +22,6 @@ const updateRole = (id, updates) => {
 
   if (updates.name !== undefined) {
     role.name = updates.name;
-  }
-  if (updates.price !== undefined) {
-    role.price = updates.price;
   }
   if (updates.description !== undefined) {
     role.description = updates.description;

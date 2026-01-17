@@ -19,20 +19,14 @@ const showRole = (req, res) => {
 };
 
 const createRoleHandler = (req, res) => {
-  const { name, price, description } = req.body;
+  const { name, description } = req.body;
   if (!name) {
     return res.status(400).json({ message: "name is required" });
   }
 
-  const parsedPrice = Number(price);
-  if (price !== undefined && Number.isNaN(parsedPrice)) {
-    return res.status(400).json({ message: "price must be a number" });
-  }
-
   const newRole = createRole({
     name,
-    price: price === undefined ? 0 : parsedPrice,
-    description: description || "",
+    description,
   });
 
   res.status(201).json(newRole);
@@ -41,13 +35,6 @@ const createRoleHandler = (req, res) => {
 const updateRoleHandler = (req, res) => {
   const updates = {};
   if (req.body.name !== undefined) updates.name = req.body.name;
-  if (req.body.price !== undefined) {
-    const parsedPrice = Number(req.body.price);
-    if (Number.isNaN(parsedPrice)) {
-      return res.status(400).json({ message: "price must be a number" });
-    }
-    updates.price = parsedPrice;
-  }
   if (req.body.description !== undefined) {
     updates.description = req.body.description;
   }
