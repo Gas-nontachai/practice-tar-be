@@ -9,11 +9,6 @@ const generateRoleId = () => {
   return `Role-${random}`;
 };
 
-roles = roles.map((role) => ({
-  ...role,
-  id: generateRoleId(),
-}));
-
 const createRole = ({ name, description }) => {
   const newRole = {
     id: generateRoleId(),
