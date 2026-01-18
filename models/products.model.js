@@ -1,4 +1,5 @@
 import productsData from "@/mock/products.json" with { type: "json" };
+import { withDefault } from "@/utils/defaultValue.js";
 
 let products = [...productsData];
 
@@ -11,7 +12,7 @@ const createProduct = ({ name, price, description }) => {
     id: String(Date.now()),
     name,
     price,
-    description,
+    description: withDefault(description),
   };
 
   products = [...products, newProduct];
@@ -29,7 +30,7 @@ const updateProduct = (id, updates) => {
     product.price = updates.price;
   }
   if (updates.description !== undefined) {
-    product.description = updates.description;
+    product.description = withDefault(updates.description);
   }
 
   return product;

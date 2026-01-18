@@ -1,4 +1,5 @@
 import rolesData from "@/mock/roles.json" with { type: "json" };
+import { withDefault } from "@/utils/defaultValue.js";
 
 let roles = [...rolesData];
 
@@ -13,7 +14,7 @@ const createRole = ({ name, description }) => {
   const newRole = {
     id: generateRoleId(),
     name,
-    description,
+    description: withDefault(description),
   };
 
   roles = [...roles, newRole];
@@ -28,7 +29,7 @@ const updateRole = (id, updates) => {
     role.name = updates.name;
   }
   if (updates.description !== undefined) {
-    role.description = updates.description;
+    role.description = withDefault(updates.description);
   }
 
   return role;
