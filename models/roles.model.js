@@ -6,7 +6,7 @@ const listRoles = () => roles;
 const findRoleById = (id) => roles.find((p) => p.id === id) || null;
 const generateRoleId = () => {
   const random = Math.floor(1000 + Math.random() * 9000);
-  return `Role-${random}`;
+  return `role-${random}`;
 };
 
 const createRole = ({ name, description }) => {
