@@ -38,7 +38,7 @@ const createStorage = ({ baseDir, folderPrefix, filenamePrefix }) =>
 
 export const createUploader = (options = {}) => {
   const {
-    baseDir = "uploads",
+    baseDir = path.join("public", "uploads"),
     folderPrefix,
     filenamePrefix,
     limits,

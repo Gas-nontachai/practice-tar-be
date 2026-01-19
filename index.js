@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import path from "node:path";
 import userRoutes from "@/routes/users.js";
 import productRoutes from "@/routes/products.js";
 import roleRoutes from "@/routes/roles.js";
@@ -10,6 +11,7 @@ const PORT = 5120;
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(process.cwd(), "public")));
 
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
