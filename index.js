@@ -7,7 +7,7 @@ import roleRoutes from "@/routes/roles.js";
 import uploadRoutes from "@/routes/uploads.js";
 
 const app = express();
-const PORT = 5120;
+const PORT = Number(process.env.PORT) || 5120;
 
 app.use(cors());
 app.use(express.json());
@@ -22,6 +22,13 @@ app.get("/", (req, res) => {
   res.json({ message: "API is running" });
 });
 
-app.listen(PORT, () => {
+const server = app.listen(PORT);
+
+server.on("listening", () => {
   console.log(`Server running on http://localhost:${PORT}`);
+});
+
+server.on("error", (err) => {
+  console.error("Failed to start server:", err);
+  process.exit(1);
 });
