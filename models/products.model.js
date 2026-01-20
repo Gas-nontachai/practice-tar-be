@@ -6,12 +6,13 @@ const listProducts = () => products;
 
 const findProductById = (id) => products.find((p) => p.id === id) || null;
 
-const createProduct = ({ name, price, description }) => {
+const createProduct = ({ name, price, description, img_path }) => {
   const newProduct = {
     id: String(Date.now()),
     name,
     price,
     description,
+    img_path: img_path || "",
   };
 
   products = [...products, newProduct];
@@ -30,6 +31,9 @@ const updateProduct = (id, updates) => {
   }
   if (updates.description !== undefined) {
     product.description = updates.description;
+  }
+  if (updates.img_path !== undefined) {
+    product.img_path = updates.img_path;
   }
 
   return product;

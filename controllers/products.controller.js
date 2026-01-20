@@ -19,7 +19,7 @@ const showProduct = (req, res) => {
 };
 
 const createProductHandler = (req, res) => {
-  const { name, price, description } = req.body;
+  const { name, price, description, img_path } = req.body;
   if (!name) {
     return res.status(400).json({ message: "name is required" });
   }
@@ -33,6 +33,7 @@ const createProductHandler = (req, res) => {
     name,
     price: price === undefined ? 0 : parsedPrice,
     description: description || "",
+    img_path: img_path || "",
   });
 
   res.status(201).json(newProduct);
@@ -50,6 +51,9 @@ const updateProductHandler = (req, res) => {
   }
   if (req.body.description !== undefined) {
     updates.description = req.body.description;
+  }
+  if (req.body.img_path !== undefined) {
+    updates.img_path = req.body.img_path;
   }
 
   const product = updateProduct(req.params.id, updates);
