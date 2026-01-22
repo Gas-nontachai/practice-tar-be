@@ -1,51 +1,51 @@
 [
   {
-    "id": "role-001",
+    "id": "role-1a2b",
     "name": "Super Admin",
     "description": "Full access to all system features"
   },
   {
-    "id": "role-002",
+    "id": "role-3c4d",
     "name": "Admin",
     "description": "Manage users and system settings"
   },
   {
-    "id": "role-003",
+    "id": "role-5e6f",
     "name": "Manager",
     "description": "Manage team and view reports"
   },
   {
-    "id": "role-004",
+    "id": "role-7a8b",
     "name": "Supervisor",
     "description": "Supervise daily operations"
   },
   {
-    "id": "role-005",
+    "id": "role-9c0d",
     "name": "Staff",
     "description": "Standard staff access"
   },
   {
-    "id": "role-006",
+    "id": "role-1b2c",
     "name": "Viewer",
     "description": "Read-only access"
   },
   {
-    "id": "role-007",
+    "id": "role-3d4e",
     "name": "Auditor",
     "description": "Audit logs and compliance data"
   },
   {
-    "id": "role-008",
+    "id": "role-5f6a",
     "name": "HR",
     "description": "Manage employee information"
   },
   {
-    "id": "role-009",
+    "id": "role-7c8d",
     "name": "Finance",
     "description": "Access financial reports"
   },
   {
-    "id": "role-010",
+    "id": "role-9e0f",
     "name": "Guest",
     "description": "Limited temporary access"
   }

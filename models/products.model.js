@@ -1,4 +1,5 @@
 import productsData from "@/mock/products.json" with { type: "json" };
+import { generateID } from "@/utils/generateID.js";
 
 let products = [...productsData];
 
@@ -8,7 +9,7 @@ const findProductById = (id) => products.find((p) => p.id === id) || null;
 
 const createProduct = ({ name, price, description, img_path }) => {
   const newProduct = {
-    id: String(Date.now()),
+    id: generateID("product", 5),
     name,
     price,
     description,

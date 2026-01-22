@@ -16,10 +16,4 @@ const updateRole = (id, updates) => updateRoleModel(id, updates);
 
 const deleteRole = (id) => deleteRoleModel(id);
 
-export {
-  getRoles,
-  getRoleById,
-  createRole,
-  updateRole,
-  deleteRole,
-};
+export { getRoles, getRoleById, createRole, updateRole, deleteRole };

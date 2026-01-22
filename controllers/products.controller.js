@@ -5,13 +5,19 @@ import {
   updateProduct,
   deleteProduct,
 } from "@/services/products.service.js";
+import { generateID } from "@/utils/generateID.js";
 
 const listProducts = (req, res) => {
   res.json(getProducts());
 };
 
 const showProduct = (req, res) => {
-  const product = getProductById(req.params.id);
+  const id = req.params.id;
+  if (!id) {
+    return res.status(400).json({ message: "Invalid product id" });
+  }
+
+  const product = getProductById(id);
   if (!product) {
     return res.status(404).json({ message: "Product not found" });
   }
@@ -56,7 +62,12 @@ const updateProductHandler = (req, res) => {
     updates.img_path = req.body.img_path;
   }
 
-  const product = updateProduct(req.params.id, updates);
+  const id = req.params.id;
+  if (!id) {
+    return res.status(400).json({ message: "Invalid product id" });
+  }
+
+  const product = updateProduct(id, updates);
   if (!product) {
     return res.status(404).json({ message: "Product not found" });
   }
@@ -64,7 +75,12 @@ const updateProductHandler = (req, res) => {
 };
 
 const deleteProductHandler = (req, res) => {
-  const deleted = deleteProduct(req.params.id);
+  const id = req.params.id;
+  if (!id) {
+    return res.status(400).json({ message: "Invalid product id" });
+  }
+
+  const deleted = deleteProduct(id);
   if (!deleted) {
     return res.status(404).json({ message: "Product not found" });
   }

@@ -1,17 +1,13 @@
 import rolesData from "@/mock/roles.json" with { type: "json" };
+import { generateID } from "@/utils/generateID.js";
 
 let roles = [...rolesData];
 
 const listRoles = () => roles;
 const findRoleById = (id) => roles.find((p) => p.id === id) || null;
-const generateRoleId = () => {
-  const random = Math.floor(1000 + Math.random() * 9000);
-  return `role-${random}`;
-};
-
 const createRole = ({ name, description }) => {
   const newRole = {
-    id: generateRoleId(),
+    id: generateID("role"),
     name,
     description,
   };

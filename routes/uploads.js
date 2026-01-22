@@ -1,8 +1,5 @@
 import express from "express";
-import {
-  singleUpload,
-  multipleUpload,
-} from "@/utils/fileUpload.js";
+import { singleUpload, multipleUpload } from "@/utils/fileUpload.js";
 
 const router = express.Router();
 
@@ -21,7 +18,7 @@ router.post(
       message: "Single upload success",
       file: req.file,
     });
-  }
+  },
 );
 
 router.post(
@@ -41,7 +38,7 @@ router.post(
       message: "Multiple upload success",
       files,
     });
-  }
+  },
 );
 
 export default router;

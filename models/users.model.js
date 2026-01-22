@@ -1,4 +1,5 @@
 import usersData from "@/mock/users.json" with { type: "json" };
+import { generateID } from "@/utils/generateID.js";
 
 let users = [...usersData];
 
@@ -8,7 +9,7 @@ const findUserById = (id) => users.find((u) => u.id === id) || null;
 
 const createUser = (name) => {
   const newUser = {
-    id: Date.now(),
+    id: generateID("user", 5),
     name,
   };
 

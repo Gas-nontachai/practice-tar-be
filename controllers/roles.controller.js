@@ -11,7 +11,12 @@ const listRoles = (req, res) => {
 };
 
 const showRole = (req, res) => {
-  const role = getRoleById(req.params.id);
+  const id = req.params.id;
+  if (!id) {
+    return res.status(400).json({ message: "Invalid role id" });
+  }
+
+  const role = getRoleById(id);
   if (!role) {
     return res.status(404).json({ message: "Role not found" });
   }
@@ -39,7 +44,12 @@ const updateRoleHandler = (req, res) => {
     updates.description = req.body.description;
   }
 
-  const role = updateRole(req.params.id, updates);
+  const id = req.params.id;
+  if (!id) {
+    return res.status(400).json({ message: "Invalid role id" });
+  }
+
+  const role = updateRole(id, updates);
   if (!role) {
     return res.status(404).json({ message: "Role not found" });
   }
@@ -47,7 +57,12 @@ const updateRoleHandler = (req, res) => {
 };
 
 const deleteRoleHandler = (req, res) => {
-  const deleted = deleteRole(req.params.id);
+  const id = req.params.id;
+  if (!id) {
+    return res.status(400).json({ message: "Invalid role id" });
+  }
+
+  const deleted = deleteRole(id);
   if (!deleted) {
     return res.status(404).json({ message: "Role not found" });
   }

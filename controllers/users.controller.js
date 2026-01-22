@@ -11,8 +11,10 @@ const listUsers = (req, res) => {
 };
 
 const showUser = (req, res) => {
-  const id = Number(req.params.id);
-  if (Number.isNaN(id)) {
+  console.log(req.params.id);
+
+  const id = req.params.id;
+  if (!id) {
     return res.status(400).json({ message: "Invalid user id" });
   }
 
@@ -33,8 +35,8 @@ const createUserHandler = (req, res) => {
 };
 
 const updateUserHandler = (req, res) => {
-  const id = Number(req.params.id);
-  if (Number.isNaN(id)) {
+  const id = req.params.id;
+  if (!id) {
     return res.status(400).json({ message: "Invalid user id" });
   }
 
@@ -46,8 +48,8 @@ const updateUserHandler = (req, res) => {
 };
 
 const deleteUserHandler = (req, res) => {
-  const id = Number(req.params.id);
-  if (Number.isNaN(id)) {
+  const id = req.params.id;
+  if (!id) {
     return res.status(400).json({ message: "Invalid user id" });
   }
 
